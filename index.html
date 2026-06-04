@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ConVibe — Brand Guidelines</title>
+<style>
+  :root{
+    --purple-deep:#5E17A8;
+    --purple:#7C20C9;
+    --purple-bright:#B24BF0;
+    --blue-deep:#0052C0;
+    --blue:#0070E0;
+    --blue-bright:#2E9BE6;
+    --cyan:#5BC5F2;
+    --gold:#F5A300;
+    --amber:#F58300;
+    --yellow:#F5B800;
+    --navy:#0B0B2E;
+    --space:#04040F;
+    --surface:#12122E;
+    --surface-2:#1B1B3C;
+    --line:rgba(255,255,255,.10);
+    --white:#F2F2F7;
+    --muted:#9A9AB6;
+    --brand-grad:linear-gradient(90deg,var(--purple),var(--blue));
+    --star-grad:linear-gradient(180deg,var(--yellow),var(--amber));
+    --cosmic-grad:radial-gradient(120% 120% at 30% 10%,#1a1150 0%,#0b0b2e 45%,#04040f 100%);
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  @media print{
+    body{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+    section,.card,.swatch,.logopanel,.gradbar{break-inside:avoid}
+    .hero{padding:48px 0 36px}
+  }
+  body{
+    margin:0;
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Inter,Roboto,Helvetica,Arial,sans-serif;
+    color:var(--white);
+    background:var(--space);
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+  .wrap{max-width:1040px;margin:0 auto;padding:0 28px}
+  a{color:var(--cyan);text-decoration:none}
+
+  /* HERO */
+  .hero{
+    background:var(--cosmic-grad);
+    border-bottom:1px solid var(--line);
+    padding:84px 0 64px;
+    text-align:center;
+    position:relative;
+    overflow:hidden;
+  }
+  .hero::after{
+    content:"";position:absolute;inset:0;
+    background:radial-gradient(2px 2px at 20% 30%,rgba(255,255,255,.7),transparent),
+              radial-gradient(1.5px 1.5px at 70% 20%,rgba(255,255,255,.5),transparent),
+              radial-gradient(1.5px 1.5px at 85% 60%,rgba(255,255,255,.6),transparent),
+              radial-gradient(1px 1px at 40% 70%,rgba(255,255,255,.45),transparent),
+              radial-gradient(1.5px 1.5px at 55% 45%,rgba(255,255,255,.5),transparent);
+    pointer-events:none;
+  }
+  .hero img{max-width:480px;width:80%;position:relative;z-index:1;filter:drop-shadow(0 12px 40px rgba(124,32,201,.45))}
+  .eyebrow{
+    text-transform:uppercase;letter-spacing:.28em;font-size:12px;font-weight:700;
+    color:var(--cyan);margin-bottom:10px;position:relative;z-index:1;
+  }
+  .hero h1{font-size:30px;margin:18px 0 4px;font-weight:800;letter-spacing:-.01em;position:relative;z-index:1}
+  .hero p{color:var(--muted);margin:0;position:relative;z-index:1}
+
+  /* SECTIONS */
+  section{padding:56px 0;border-bottom:1px solid var(--line)}
+  h2{
+    font-size:13px;text-transform:uppercase;letter-spacing:.22em;font-weight:800;
+    color:var(--cyan);margin:0 0 6px;
+  }
+  .lead{font-size:24px;font-weight:700;margin:0 0 22px;letter-spacing:-.01em}
+  p.body{color:#cfcfe2;max-width:74ch}
+  .grid{display:grid;gap:18px}
+  .two{grid-template-columns:1fr 1fr}
+  .three{grid-template-columns:repeat(3,1fr)}
+  .four{grid-template-columns:repeat(4,1fr)}
+  @media(max-width:760px){.two,.three,.four{grid-template-columns:1fr}}
+
+  .card{
+    background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:22px;
+  }
+  .card h3{margin:0 0 8px;font-size:16px}
+  .card p{margin:0;color:var(--muted);font-size:14px}
+
+  /* COLOR SWATCHES */
+  .swatch{border-radius:14px;overflow:hidden;border:1px solid var(--line);background:var(--surface)}
+  .swatch .chip{height:104px}
+  .swatch .meta{padding:12px 14px}
+  .swatch .name{font-weight:700;font-size:14px}
+  .swatch .hex{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:13px;color:var(--muted);margin-top:2px;text-transform:uppercase}
+  .swatch .use{font-size:12px;color:var(--muted);margin-top:6px}
+
+  /* GRADIENT BARS */
+  .gradbar{height:90px;border-radius:14px;border:1px solid var(--line);display:flex;align-items:flex-end;padding:12px 16px;font-family:ui-monospace,Menlo,monospace;font-size:12px;color:rgba(255,255,255,.9)}
+
+  /* LOGO PANELS */
+  .logopanel{border-radius:18px;border:1px solid var(--line);overflow:hidden}
+  .logopanel .art{display:flex;align-items:center;justify-content:center;padding:38px}
+  .logopanel .art.dark{background:var(--cosmic-grad)}
+  .logopanel .art.light{background:#F2F2F7}
+  .logopanel .art img{max-width:100%;max-height:200px}
+  .logopanel .label{padding:12px 16px;font-size:13px;color:var(--muted);background:var(--surface);border-top:1px solid var(--line)}
+  .iconart{width:180px;height:180px;border-radius:40px;overflow:hidden;box-shadow:0 16px 48px rgba(0,0,0,.55);border:1px solid var(--line)}
+  .iconart img{width:100%;height:100%;object-fit:cover;display:block}
+
+  /* DO / DON'T */
+  .rule{display:flex;gap:10px;align-items:flex-start;font-size:14px;color:#cfcfe2;margin:0 0 10px}
+  .rule .mark{flex:0 0 auto;width:22px;height:22px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:13px;color:#04040f;margin-top:2px}
+  .do .mark{background:#39d98a}
+  .dont .mark{background:#ff6b6b}
+
+  /* TYPE */
+  .typespec{font-size:15px;color:#cfcfe2}
+  .typespec b{color:var(--white)}
+  .typesample{font-weight:800;letter-spacing:-.01em;line-height:1.1;margin:6px 0 2px}
+
+  .pill{display:inline-block;font-size:12px;font-family:ui-monospace,Menlo,monospace;background:var(--surface-2);border:1px solid var(--line);border-radius:999px;padding:3px 10px;color:var(--cyan)}
+  .note{background:rgba(91,197,242,.08);border:1px solid rgba(91,197,242,.25);border-radius:12px;padding:14px 16px;font-size:14px;color:#cfcfe2;margin-top:18px}
+  table{width:100%;border-collapse:collapse;font-size:14px}
+  td,th{text-align:left;padding:9px 10px;border-bottom:1px solid var(--line);color:#cfcfe2}
+  th{color:var(--muted);font-weight:600;font-size:12px;text-transform:uppercase;letter-spacing:.08em}
+  code{font-family:ui-monospace,Menlo,monospace;font-size:13px;color:var(--cyan)}
+  footer{padding:40px 0 60px;color:var(--muted);font-size:13px;text-align:center}
+  .gradient-text{background:var(--brand-grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="wrap">
+    <div class="eyebrow">Brand Guidelines · v1</div>
+    <img src="convibe-lockup.png" alt="ConVibe logo lockup">
+    <h1>The <span class="gradient-text">ConVibe</span> Brand System</h1>
+    <p>Conventions · Celebrities · Fans — June 2026</p>
+  </div>
+</header>
+
+<section>
+  <div class="wrap">
+    <h2>Brand Essence</h2>
+    <p class="lead">A backstage pass to the convention universe.</p>
+    <p class="body">ConVibe tells fans the moment a celebrity they love is appearing at a convention near them. The identity has to feel like the best part of a con — the electric, slightly-overwhelming buzz of a packed show floor under the lights — and make it feel <em>organized and exciting</em> instead of chaotic. The visual world is a <b>cosmic, neon-lit night</b>: a starfield, a glowing convention badge, a gold star. It's playful and gaming-adjacent, not corporate. The feeling we're chasing is the little jolt when you spot a celebrity you didn't know was coming.</p>
+    <div class="grid three" style="margin-top:26px">
+      <div class="card"><h3>Electric</h3><p>Saturated neon on deep space. The brand glows — it never sits flat or muted.</p></div>
+      <div class="card"><h3>Playful</h3><p>Rounded, chunky, gaming-forward. Friendly first; never stiff or enterprise.</p></div>
+      <div class="card"><h3>Premium-fun</h3><p>Polished gradients and depth, like a AAA game UI — fun that still feels well-made.</p></div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <h2>Logo System</h2>
+    <p class="lead">Two assets, two jobs.</p>
+    <div class="grid two">
+      <div class="logopanel">
+        <div class="art dark"><img src="convibe-lockup.png" alt="Primary lockup"></div>
+        <div class="label"><b style="color:#fff">Primary lockup</b> — badge + wordmark + tagline. Use anywhere ConVibe is named: marketing, splash screen, headers, the web app, decks.</div>
+      </div>
+      <div class="logopanel">
+        <div class="art dark"><img src="convibe-icon.jpg" alt="Badge icon" style="max-height:200px;border-radius:24px"></div>
+        <div class="label"><b style="color:#fff">Badge / app icon</b> — the lanyard badge with the gold star on a starfield. This is the App Store icon and the home-screen mark.</div>
+      </div>
+    </div>
+
+    <div class="grid two" style="margin-top:30px">
+      <div>
+        <h3 style="margin:0 0 12px">Clear space &amp; minimums</h3>
+        <p class="body">Keep clear space around the lockup equal to the height of the badge's star. Don't let other elements crowd it. Minimum legible width for the full lockup is <b>180&nbsp;px</b> on screen; below that, switch to the badge-only mark.</p>
+      </div>
+      <div>
+        <h3 style="margin:0 0 12px">Backgrounds</h3>
+        <p class="body">The brand is <b>dark-first</b> — the lockup and badge are designed to sit on the cosmic navy / deep-space gradient. On light surfaces, keep generous padding and avoid busy photos behind the mark. Never place the badge on a clashing saturated color.</p>
+      </div>
+    </div>
+
+    <div class="grid two" style="margin-top:30px">
+      <div class="card do">
+        <h3 style="margin-bottom:14px;color:#39d98a">Do</h3>
+        <div class="rule do"><span class="mark">✓</span><span>Use the supplied vector / PNG files at full quality.</span></div>
+        <div class="rule do"><span class="mark">✓</span><span>Place on the cosmic dark gradient whenever possible.</span></div>
+        <div class="rule do"><span class="mark">✓</span><span>Use the badge alone for the app icon, favicons, and tight spaces.</span></div>
+        <div class="rule do"><span class="mark">✓</span><span>Preserve the purple→blue gradient direction of the wordmark.</span></div>
+      </div>
+      <div class="card dont">
+        <h3 style="margin-bottom:14px;color:#ff6b6b">Don't</h3>
+        <div class="rule dont"><span class="mark">✕</span><span>Recolor, flatten, or rebuild the wordmark in a different font.</span></div>
+        <div class="rule dont"><span class="mark">✕</span><span>Stretch, skew, rotate, or add new drop shadows / outlines.</span></div>
+        <div class="rule dont"><span class="mark">✕</span><span>Put the badge on a clashing saturated background.</span></div>
+        <div class="rule dont"><span class="mark">✕</span><span>Re-rasterize and re-slice the lockup (the May 31 white-seam issue).</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <h2>Color</h2>
+    <p class="lead">Neon on deep space.</p>
+    <p class="body">The palette is a purple→blue spectrum (the wordmark gradient) lit against cosmic navy, with a single warm gold reserved for the star, highlights, and primary calls-to-action. Gold is the spark — use it sparingly so it always reads as "the good part."</p>
+
+    <h3 style="margin:30px 0 12px">Primary — the ConVibe spectrum</h3>
+    <div class="grid four">
+      <div class="swatch"><div class="chip" style="background:#5E17A8"></div><div class="meta"><div class="name">Purple Deep</div><div class="hex">#5E17A8</div><div class="use">Wordmark base, deep accents</div></div></div>
+      <div class="swatch"><div class="chip" style="background:#7C20C9"></div><div class="meta"><div class="name">ConVibe Purple</div><div class="hex">#7C20C9</div><div class="use">Primary brand purple</div></div></div>
+      <div class="swatch"><div class="chip" style="background:#0070E0"></div><div class="meta"><div class="name">ConVibe Blue</div><div class="hex">#0070E0</div><div class="use">Primary brand blue</div></div></div>
+      <div class="swatch"><div class="chip" style="background:#5BC5F2"></div><div class="meta"><div class="name">Cyan Spark</div><div class="hex">#5BC5F2</div><div class="use">Highlights, links, glow</div></div></div>
+    </div>
+
+    <h3 style="margin:30px 0 12px">Accent — the star</h3>
+    <div class="grid four">
+      <div class="swatch"><div class="chip" style="background:#F5B800"></div><div class="meta"><div class="name">Star Yellow</div><div class="hex">#F5B800</div><div class="use">Star top, highlights</div></div></div>
+      <div class="swatch"><div class="chip" style="background:#F5A300"></div><div class="meta"><div class="name">ConVibe Gold</div><div class="hex">#F5A300</div><div class="use">Primary CTA, "followed"</div></div></div>
+      <div class="swatch"><div class="chip" style="background:#F58300"></div><div class="meta"><div class="name">Amber</div><div class="hex">#F58300</div><div class="use">Star base, pressed states</div></div></div>
+      <div class="swatch"><div class="chip" style="background:#B24BF0"></div><div class="meta"><div class="name">Purple Bright</div><div class="hex">#B24BF0</div><div class="use">Wordmark top, hover</div></div></div>
+    </div>
+
+    <h3 style="margin:30px 0 12px">Neutrals &amp; surfaces (dark-first)</h3>
+    <div class="grid four">
+      <div class="swatch"><div class="chip" style="background:#04040F"></div><div class="meta"><div class="name">Deep Space</div><div class="hex">#04040F</div><div class="use">App background</div></div></div>
+      <div class="swatch"><div class="chip" style="background:#0B0B2E"></div><div class="meta"><div class="name">Cosmic Navy</div><div class="hex">#0B0B2E</div><div class="use">Primary surface</div></div></div>
+      <div class="swatch"><div class="chip" style="background:#1B1B3C"></div><div class="meta"><div class="name">Card Navy</div><div class="hex">#1B1B3C</div><div class="use">Cards, raised surfaces</div></div></div>
+      <div class="swatch"><div class="chip" style="background:#F2F2F7"></div><div class="meta"><div class="name">Cloud White</div><div class="hex">#F2F2F7</div><div class="use">Text on dark</div></div></div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <h2>Gradients</h2>
+    <p class="lead">The brand moves in gradients, not flats.</p>
+    <div class="grid two">
+      <div>
+        <div class="gradbar" style="background:linear-gradient(90deg,#7C20C9,#0070E0)">linear-gradient(90deg, #7C20C9, #0070E0)</div>
+        <p class="card" style="margin-top:10px"><b style="color:#fff">Signature gradient</b> — the ConVibe wordmark. Use for primary buttons, active tabs, key accents. This is <em>the</em> brand gesture.</p>
+      </div>
+      <div>
+        <div class="gradbar" style="background:linear-gradient(180deg,#F5B800,#F58300)">linear-gradient(180deg, #F5B800, #F58300)</div>
+        <p class="card" style="margin-top:10px"><b style="color:#fff">Star gradient</b> — the gold. Reserve for the star, the primary CTA, and "achieved / followed" states. The reward color.</p>
+      </div>
+      <div>
+        <div class="gradbar" style="background:radial-gradient(120% 120% at 30% 10%,#1a1150 0%,#0b0b2e 45%,#04040f 100%)">radial cosmic · #1a1150 → #0b0b2e → #04040f</div>
+        <p class="card" style="margin-top:10px"><b style="color:#fff">Cosmic background</b> — the starfield base. Behind the badge, splash screens, hero sections, empty states.</p>
+      </div>
+      <div>
+        <div class="gradbar" style="background:linear-gradient(135deg,#B24BF0,#2E9BE6,#5BC5F2)">linear-gradient(135deg, #B24BF0, #2E9BE6, #5BC5F2)</div>
+        <p class="card" style="margin-top:10px"><b style="color:#fff">Glow accent</b> — the badge edge / neon rim light. Use for subtle borders, focus rings, and selected cards.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <h2>Typography</h2>
+    <p class="lead">Rounded, chunky, friendly.</p>
+
+    <div class="grid two">
+      <div class="card">
+        <span class="pill">Logo wordmark</span>
+        <div class="typesample gradient-text" style="font-size:40px">ConVibe</div>
+        <p class="typespec">A custom, rounded display face with a heavy 3-D outline — <b>part of the logo artwork, not a system font.</b> Do not re-typeset the wordmark; always use the supplied logo files.</p>
+        <div class="note">Open item: the exact font used in the lockup wasn't delivered embedded. Get the font name(s) from the Fiverr designer so it can be matched for future marketing pieces.</div>
+      </div>
+      <div class="card">
+        <span class="pill">UI display / headings</span>
+        <div class="typesample" style="font-size:34px;font-family:'Poppins','Baloo 2',system-ui,sans-serif">Upcoming Conventions</div>
+        <p class="typespec">For in-app headings, pick a <b>rounded geometric sans</b> that echoes the wordmark's friendliness — <b>Poppins</b>, <b>Baloo&nbsp;2</b>, or <b>Nunito</b>. Bold weights, tight tracking. This is where the "gaming UI" feel lives.</p>
+      </div>
+    </div>
+
+    <div class="grid two" style="margin-top:18px">
+      <div class="card">
+        <span class="pill">Tagline / labels</span>
+        <div class="typesample" style="font-size:18px;letter-spacing:.18em;font-weight:800">CONVENTIONS · CELEBRITIES · FANS</div>
+        <p class="typespec">All-caps, wide tracking, bold. Mirrors the lockup tagline. Use for section eyebrows, category chips, and small structural labels.</p>
+      </div>
+      <div class="card">
+        <span class="pill">Body / UI text</span>
+        <div class="typesample" style="font-size:17px;font-weight:600;font-family:-apple-system,Inter,system-ui">Wesley Snipes is appearing near you.</div>
+        <p class="typespec">Use the platform system font (<b>SF Pro</b> on iOS) or <b>Inter</b> for body and UI copy — maximum legibility and native feel. Keep the personality in the headings; keep the body clean.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <h2>App Icon</h2>
+    <p class="lead">The badge is the icon.</p>
+    <div class="grid two">
+      <div style="display:flex;gap:24px;align-items:center;flex-wrap:wrap">
+        <div class="iconart"><img src="convibe-icon.jpg" alt="App icon"></div>
+        <div>
+          <p class="body" style="margin:0">The lanyard badge + gold star on the cosmic starfield, framed in the iOS rounded square. The starfield fills the icon edge-to-edge so it reads at small sizes; the gold star is the focal point and the one warm element.</p>
+        </div>
+      </div>
+      <div>
+        <h3 style="margin:0 0 10px">Production notes</h3>
+        <div class="rule"><span class="mark" style="background:var(--cyan)">i</span><span>Export the master at <b>1024×1024</b>; iOS generates the rest. Provide all sizes Apple's asset catalog requests.</span></div>
+        <div class="rule"><span class="mark" style="background:var(--cyan)">i</span><span>Bleed the starfield to the edges — Apple applies the rounded-rect mask, so no manual corner rounding and no transparent corners.</span></div>
+        <div class="rule"><span class="mark" style="background:var(--cyan)">i</span><span>Keep the star and badge centered with safe margin so nothing clips under the mask.</span></div>
+        <div class="rule"><span class="mark" style="background:var(--cyan)">i</span><span>Source vectors (<code>.svg</code> / <code>.ai</code>) are in the asset folder for clean re-export.</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <h2>Voice &amp; Tone</h2>
+    <p class="lead">An excited friend who knows the floor.</p>
+    <div class="grid three">
+      <div class="card"><h3>Hyped, not hypey</h3><p>Genuine fan energy — "Whoa, look who's coming." Never markety or pushy.</p></div>
+      <div class="card"><h3>Clear &amp; quick</h3><p>Get the fan from "phone in pocket" to "I'm following them" in the fewest taps. Copy is short.</p></div>
+      <div class="card"><h3>For insiders &amp; newcomers</h3><p>Welcoming to brand-new con-goers, but fluent enough to respect the veterans.</p></div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <h2>Asset Index</h2>
+    <p class="body">Master files live in <code>/ConVibe Official Logo/</code> next to this document.</p>
+    <table>
+      <tr><th>File</th><th>What it is</th><th>Best for</th></tr>
+      <tr><td><code>logo11042.svg / .ai</code></td><td>Primary lockup, vector</td><td>Print, large scale, clean re-export</td></tr>
+      <tr><td><code>logo11042.png / .jpg</code></td><td>Primary lockup, raster</td><td>Web, decks, in-app headers</td></tr>
+      <tr><td><code>logo11042-2.svg / .ai</code></td><td>Badge / icon, vector</td><td>App icon master, favicons</td></tr>
+      <tr><td><code>logo11042-2.png / .jpg</code></td><td>Badge / icon, raster</td><td>App icon preview, social avatar</td></tr>
+    </table>
+    <div class="note">The lockup's lower tagline band was delivered as a sliced raster (the May 31 white-seam). For any large-format or print use, request a fully-vectorized lockup with the tagline as live shapes from the designer.</div>
+  </div>
+</section>
+
+<footer>
+  ConVibe Brand Guidelines · v1 · June 2026 — prepared for ConVibe LLC (Niko Paleologus) by AZ Technology Solutions.<br>
+  Palette sampled from the official logo artwork. Update as the app UI is finalized during the native build.
+</footer>
+
+</body>
+</html>
